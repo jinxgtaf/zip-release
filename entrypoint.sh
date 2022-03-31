@@ -22,11 +22,11 @@ then
 
       for EXCLUSION in $INPUT_EXCLUSIONS
       do
-        EXCLUSIONS+=" -x!"
+        EXCLUSIONS+=" -xr!"
         EXCLUSIONS+=$EXCLUSION
       done
 
-      7z a -tzip $INPUT_FILENAME $INPUT_PATH $EXCLUSIONS || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
+      7z a $INPUT_FILENAME $INPUT_PATH -r $EXCLUSIONS || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
     fi
   else
     if [ -z "$INPUT_EXCLUSIONS" ] 
