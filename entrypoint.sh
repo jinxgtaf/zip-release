@@ -26,7 +26,7 @@ then
         EXCLUSIONS+=$EXCLUSION
       done
 
-      7z a -t7z -mx=4 $INPUT_FILENAME $INPUT_PATH -r $EXCLUSIONS || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
+      7z -v2g a -t7z -mx=4 $INPUT_FILENAME $INPUT_PATH -r $EXCLUSIONS || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
     fi
   else
     if [ -z "$INPUT_EXCLUSIONS" ] 
